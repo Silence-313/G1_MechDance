@@ -117,3 +117,10 @@ unitree_rl_mjlab/simulate/mujoco/bin/
 
 # ---------- 体积过大的演示图（上传带宽受限，暂时排除） ----------
 GMR/assets/GMR.png
+
+# ---------- 图片资源（MuJoCo 纹理 / README 配图，可从上游重新获取） ----------
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.ico
