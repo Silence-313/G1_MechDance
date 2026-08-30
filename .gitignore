@@ -1,0 +1,110 @@
+# ============================================================
+# MechDance 统一 .gitignore
+# 原则：只提交源码 / 配置 / 文档；不提交可再生成的大体积二进制与产物。
+# ============================================================
+
+# ---------- 操作系统 / 编辑器 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.python-version
+
+# ---------- 虚拟环境 / conda ----------
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# ---------- 模型权重 / 预训练 checkpoint（体积巨大，需自行下载） ----------
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+*.onnx.data
+
+# ---------- SMPL / SMPL-X 人体模型 & 预训练权重目录 ----------
+**/body_models/
+**/checkpoints/
+GVHMR/inputs/
+
+# ---------- 训练日志 / 运行产物 ----------
+logs/
+runs/
+outputs/
+wandb/
+*.tfevents*
+g1_tracking/
+111/
+unitree_rl_mjlab/2026-*/
+
+# ---------- 动作 / 模型二进制（可由视频流水线重新生成） ----------
+*.npz
+*.pkl
+
+# ---------- 子项目旧 git 历史（保留在磁盘备份，不纳入本仓库） ----------
+**/.git.bak/
+
+# ---------- 视频 / 动画产物 ----------
+*.mp4
+*.avi
+*.mov
+*.webm
+*.mkv
+*.gif
+
+# ---------- Python 包 / wheel ----------
+*.whl
+
+# ---------- 编译产物 / 预编译库 ----------
+*.so
+*.so.*
+*.a
+*.o
+*.dll
+*.lib
+*.dylib
+*.exe
+
+# ---------- 二进制安装包 ----------
+*.deb
+*.rpm
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.xz
+*.gz
+
+# ---------- 机器人网格模型（大体积二进制，可从上游 unitree_rl_mjlab / GMR 重新获取） ----------
+*.STL
+*.stl
+*.obj
+*.dae
+*.gltf
+*.glb
+
+# ---------- 自动拷贝方案残留的旧目录（含原 .git，待用户 sudo 清理） ----------
+/unitree_rl_mjlab.orig/
+
+# ---------- 本地个人配置 ----------
+.claude/settings.local.json
