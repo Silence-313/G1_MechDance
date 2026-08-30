@@ -1,0 +1,199 @@
+FSM:
+  _: # enabled fsms
+    Passive:
+      id: 1
+    FixStand:
+      id: 2
+    Velocity:
+      id: 3
+      type: RLBase
+
+    Mimic_957d1c6f:
+      id: 7
+      type: Mimic
+
+    Mimic_17fe0adf:
+      id: 8
+      type: Mimic
+
+    Mimic_93ccdf54:
+      id: 9
+      type: Mimic
+
+    Mimic_c2197703:
+      id: 10
+      type: Mimic
+
+    Mimic_8yue12_01:
+      id: 11
+      type: Mimic
+
+    Mimic_clip_130_135s:
+      id: 12
+      type: Mimic
+
+    Mimic_f85854e8:
+      id: 13
+      type: Mimic
+
+
+  Passive:
+    transitions:
+      FixStand: LT + up.on_pressed
+    mode: [
+      1,1,1,1,1,1,
+      1,1,1,1,1,1,
+      1,1,1,
+      1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,
+    ]
+    kd: [
+      3,3,3,3,3,3,
+      3,3,3,3,3,3,
+      3,3,3,
+      3,3,3,3,3,3,3,
+      3,3,3,3,3,3,3,
+    ]
+
+
+  FixStand:
+    transitions:
+      Passive: LT + B.on_pressed
+      Velocity: RT + A.on_pressed
+
+    kp: [
+      100,100,100,150,40,40,
+      100,100,100,150,40,40,
+      200,200,200,
+      40,40,40,40,40,40,40,
+      40,40,40,40,40,40,40,
+    ]
+    kd: [
+      2,2,2,4,2,2,
+      2,2,2,4,2,2,
+      5,5,5,
+      10,10,10,10,10,10,10,
+      10,10,10,10,10,10,10,
+    ]
+    ts: [0, 2]
+    qs: [
+      [],
+      [ -0.1, 0,0,0.3,-0.2,0,
+        -0.1, 0,0,0.3,-0.2,0,
+        0,0,0,
+        0.35, 0.18,0,0.87,0,0,0,
+        0.35,-0.18,0,0.87,0,0,0
+      ]
+    ]
+
+
+  Velocity:
+    transitions:
+      Passive: LT + B.on_pressed
+      Mimic_957d1c6f: RB + A.on_pressed
+      Mimic_17fe0adf: RB + B.on_pressed
+      Mimic_93ccdf54: RB + X.on_pressed
+      Mimic_c2197703: RB + Y.on_pressed
+      Mimic_8yue12_01: RB + down.on_pressed
+      Mimic_clip_130_135s: RB + up.on_pressed
+      Mimic_f85854e8: RB + left.on_pressed
+
+    policy_dir: config/policy/velocity
+
+
+  Mimic_957d1c6f:
+    transitions:
+      Passive: LT + B.on_pressed
+      Velocity: RT + A.on_pressed
+      Mimic_93ccdf54: RB + X.on_pressed
+      Mimic_c2197703: RB + Y.on_pressed
+
+    motion_file: config/policy/mimic/957d1c6f/params/957d1c6f.npz
+    policy_dir: config/policy/mimic/957d1c6f/
+    time_start: 0.0
+    time_end: 1000.0
+
+
+  Mimic_17fe0adf:
+    transitions:
+      Passive: LT + B.on_pressed
+      Velocity: RT + A.on_pressed
+      Mimic_93ccdf54: RB + X.on_pressed
+      Mimic_c2197703: RB + Y.on_pressed
+
+    motion_file: config/policy/mimic/17fe0adf/params/17fe0adf.npz
+    policy_dir: config/policy/mimic/17fe0adf/
+    time_start: 0.0
+    time_end: 1000.0
+
+
+  Mimic_93ccdf54:
+    transitions:
+      Passive: LT + B.on_pressed
+      Velocity: RT + A.on_pressed
+      Mimic_957d1c6f: RB + A.on_pressed
+      Mimic_17fe0adf: RB + B.on_pressed
+
+    motion_file: config/policy/mimic/93ccdf54/params/93ccdf54.npz
+    policy_dir: config/policy/mimic/93ccdf54/
+    time_start: 0.0
+    time_end: 1000.0
+
+
+  Mimic_c2197703:
+    transitions:
+      Passive: LT + B.on_pressed
+      Velocity: RT + A.on_pressed
+      Mimic_957d1c6f: RB + A.on_pressed
+      Mimic_17fe0adf: RB + B.on_pressed
+
+    motion_file: config/policy/mimic/c2197703/params/c2197703.npz
+    policy_dir: config/policy/mimic/c2197703/
+    time_start: 0.0
+    time_end: 1000.0
+
+  Mimic_8yue12_01:
+    transitions:
+      Passive: LT + B.on_pressed
+      Velocity: RT + A.on_pressed
+      Mimic_957d1c6f: RB + A.on_pressed
+      Mimic_17fe0adf: RB + B.on_pressed
+      Mimic_93ccdf54: RB + X.on_pressed
+      Mimic_c2197703: RB + Y.on_pressed
+
+    motion_file: config/policy/mimic/8yue12_01/params/8yue12_01.npz
+    policy_dir: config/policy/mimic/8yue12_01/
+    time_start: 0.0
+    time_end: 1000.0
+
+  Mimic_clip_130_135s:
+    transitions:
+      Passive: LT + B.on_pressed
+      Velocity: RT + A.on_pressed
+      Mimic_957d1c6f: RB + A.on_pressed
+      Mimic_17fe0adf: RB + B.on_pressed
+      Mimic_93ccdf54: RB + X.on_pressed
+      Mimic_c2197703: RB + Y.on_pressed
+      Mimic_8yue12_01: RB + down.on_pressed
+
+    motion_file: config/policy/mimic/clip_130_135s/params/clip_130_135s.npz
+    policy_dir: config/policy/mimic/clip_130_135s/
+    time_start: 0.0
+    time_end: 1000.0
+
+
+  Mimic_f85854e8:
+    transitions:
+      Passive: LT + B.on_pressed
+      Velocity: RT + A.on_pressed
+      Mimic_957d1c6f: RB + A.on_pressed
+      Mimic_17fe0adf: RB + B.on_pressed
+      Mimic_93ccdf54: RB + X.on_pressed
+      Mimic_c2197703: RB + Y.on_pressed
+      Mimic_8yue12_01: RB + down.on_pressed
+      Mimic_clip_130_135s: RB + up.on_pressed
+
+    motion_file: config/policy/mimic/f85854e8/params/f85854e8.npz
+    policy_dir: config/policy/mimic/f85854e8/
+    time_start: 0.0
+    time_end: 1000.0
