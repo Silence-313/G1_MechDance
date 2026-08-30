@@ -113,7 +113,7 @@ unitree_rl_mjlab/2026-*/
 GVHMR/tools/demo/colab_demo.ipynb
 
 # ---------- 预编译 MuJoCo 二进制（build 产物，可重新编译） ----------
-simulate/mujoco/bin/
+unitree_rl_mjlab/simulate/mujoco/bin/
 
 # ---------- 体积过大的演示图（上传带宽受限，暂时排除） ----------
 GMR/assets/GMR.png
